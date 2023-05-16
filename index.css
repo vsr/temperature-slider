@@ -14,6 +14,7 @@ body {
 .container {
   max-width: 48rem;
   margin: 0 auto;
+  padding: 0.5em;
 }
 h1 {
   font-size: 1rem;
@@ -22,6 +23,9 @@ h1 {
 .thermometer {
   width: 100%;
   margin: 3em 0;
+  padding: 1.5em 2em;
+  border-radius: 20px;
+  border: 1px solid #332;
 }
 .thermometer .c-scale,
 .thermometer .f-scale,
@@ -34,11 +38,13 @@ h1 {
 }
 .c-scale,
 .f-scale {
-  width: 90vw;
   height: 10px;
   background: #eee;
   display: flex;
   justify-content: space-between;
+  padding: 0 7px;
+  list-style-type: none;
+  margin: 0;
 }
 .mark {
   width: 2px;
@@ -66,8 +72,58 @@ h1 {
 .result-table {
   display: flex;
   gap: 3em;
+  padding: 0 1em;
+}
+dd {
+  margin: 0;
 }
 .value {
   font-size: 1.5em;
   font-weight: 600;
+  color: rgb(0, 174, 0);
+}
+.borderline .value {
+  color: rgb(255, 115, 0);
+}
+.fever .value {
+  color: rgb(255, 35, 35);
+}
+@media screen and (orientation: portrait) {
+  .slider {
+    appearance: slider-vertical;
+    margin: 0;
+  }
+  .thermometer {
+    height: 80vh;
+    margin: 1em auto;
+    width: 10em;
+    display: flex;
+  }
+  .thermometer .c-scale,
+  .thermometer .f-scale {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+  }
+  .thermometer .f-scale {
+    text-align: right;
+  }
+  .thermometer .c-scale .mark-text {
+    top: -3em;
+    transform: rotate(90deg);
+    left: -1.5em;
+    text-align: right;
+  }
+  .thermometer .f-scale .mark-text {
+    top: 2em;
+    transform: rotate(90deg);
+    left: -1em;
+    text-align: right;
+  }
+  .thermometer .mark {
+    transform: rotate(-90deg) translateY(1em);
+  }
+  .result-table {
+    justify-content: center;
+  }
 }

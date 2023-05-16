@@ -9,18 +9,25 @@
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body>
+<body class="vertical">
     <div class="container">
         <h1 class="sr-only">Easy Celcius-Farenheit converter with a slider</h1>
-        <div class="result-table">
-            <div><span class="value" id="c-value"></span><br />Celcius</div>
-            <div> <span class="value" id="f-value"></span><br />Farenheit</div>
-        </div>
-        <div class="thermometer">
-            <div class="c-scale"></div>
-            <input class="slider" id="slider" type="range" name="thermometer" aria-label="Temperature slider" />
-            <div class="f-scale"></div>
-        </div>
+        <dl class="result-table" aria-live="polite" aria-atomic="true">
+            <div>
+                <dt class="value" id="c-value"></dt>
+                <dd>Celcius</dd>
+            </div>
+            <div>
+                <dt class="value" id="f-value"></dt>
+                <dd>Farenheit</dd>
+            </div>
+    </div>
+    <div class="thermometer">
+        <ol class="c-scale" aria-label="Celcius scale"></ol>
+        <input class="slider" id="slider" orient="vertical" type="range" name="thermometer"
+            aria-label="Temperature slider" />
+        <ol class="f-scale" aria-label="Farenheit scale"></ol>
+    </div>
     </div>
 </body>
 <script src="index.js"></script>

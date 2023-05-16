@@ -12,7 +12,7 @@ const $fScale = document.querySelector(".f-scale");
 const cToF = (c) => 32 + (9 / 5) * c;
 
 for (let i = minTemperature; i <= maxTemperature; i += 0.5) {
-  const e = document.createElement("span");
+  const e = document.createElement("li");
   e.classList.add("mark");
   const et = document.createElement("span");
   et.textContent = i;
@@ -23,7 +23,7 @@ for (let i = minTemperature; i <= maxTemperature; i += 0.5) {
 }
 
 for (let i = cToF(minTemperature); i <= cToF(maxTemperature); i += 1) {
-  const e = document.createElement("span");
+  const e = document.createElement("li");
   e.classList.add("mark");
   const et = document.createElement("span");
   et.textContent = i;
@@ -37,6 +37,13 @@ $slider.addEventListener("input", function (ev) {
   const value = parseFloat(ev.target.value, 10);
   document.querySelector("#c-value").textContent = value.toFixed(1);
   document.querySelector("#f-value").textContent = cToF(value).toFixed(1);
+  document.body.classList.remove("fever", "borderline");
+  if (value >= 37.2) {
+    document.body.classList.add("borderline");
+  }
+  if (value >= 38) {
+    document.body.classList.add("fever");
+  }
 });
 
 $slider.setAttribute("min", minTemperature);
